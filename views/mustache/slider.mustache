@@ -1,0 +1,27 @@
+{{ screen_icon }}
+<h2>
+    {{# new_slider? }}
+        Create new slider
+    {{/ new_slider? }}
+    {{^ new_slider? }}
+        Edit slider
+    {{/ new_slider? }}
+</h2>
+
+{{# wp_nonce_fields }}
+    {{{ wp_nonce_fields.parallaxslider }}}
+    {{{ wp_nonce_fields.closedpostboxes }}}
+    {{{ wp_nonce_fields.meta-box-order }}}
+{{/ wp_nonce_fields }} 
+
+<div id="poststuff">
+    <div id="post-body" class="metabox-holder columns-2"> 
+        <div id="postbox-container-1" class="postbox-container">
+            {{{ do_side_meta }}}
+        </div>
+        <div id="postbox-container-2" class="postbox-container">
+            {{{ do_normal_meta }}}  
+        </div>
+        <input type="button" id="add_new_slide" class="button-primary" value="Add New Slide" />
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<tr>
+	<td>   
+		<a href="?page={{ page_name }}&slider-id={{ key }}">{{ title }}</a>
+	</td>	
+	<td> 
+		{{ slidesCount }}
+	</td>
+	<td>
+		<input type="text" onclick="this.select()" value='[{{ page_name }} id="{{key}}"]' />
+	</td>
+	<td>
+		<a class="button action" href="javascript:void(0);" data-slider="{{ key }}" data-action="duplicate-slider">Duplicate</a>
+	</td>
+	<td>
+		<a class="button action button-danger" href="javascript:void(0);" data-slider="{{ key }}" data-action="delete-slider">Delete</a>
+	</td>
+	
+	<td><a class="action preview-icon" href="#" data-action="preview-slider" data-slider="{{ key }}"></a>
+	</td>
+</tr> 

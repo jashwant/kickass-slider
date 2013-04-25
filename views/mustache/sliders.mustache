@@ -1,0 +1,35 @@
+{{ screen_icon }} 
+<h2 class="clearfix">
+	{{ plugin_name }} <a href="?page={{ page_name }}&slider-id=new" class="add-new-h2">Add New</a>
+	<div class="alignright">
+		<input id="import-sliders" type="button" class="button" value="Import" />
+		<input id="export-sliders" type="button" class="button" value="Export" />
+	</div>
+</h2>
+<br>
+<form action="" method="post">
+	<table id="listSliders" class="wp-list-table widefat fixed posts" cellspacing="0">
+		<thead> 
+			<tr> 
+				<th width='20%'>
+					<a href="{{ title_url }}">Title</a>
+				</th>
+				<th width='10%'>No of Slides</th> 
+				<th width='15%'>Shortcode</th>	 
+				<th width='15%'>Duplicate</th> 					
+				<th width='10%'>Delete</th> 
+				<th width='10%'>Preview</th>
+			</tr>
+		</thead>
+		<tbody>  
+			{{# sliders }} 
+				{{> slide_tr }}
+			{{/ sliders }} 
+			{{^ sliders }}
+				<tr>
+				  <td colspan="6">No sliders found. Create one by clicking &quot;Add New&quot; above</td>
+				</tr>
+			{{/ sliders }} 
+		</tbody>		 
+	</table>
+</form>

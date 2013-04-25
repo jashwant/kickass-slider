@@ -1,0 +1,29 @@
+{{# slider }} 
+<div id="{{ slider_html_id }}" class="sliderContainer">
+	<ul class="slider">
+		{{# slides }} 
+			<li data-transition="{{ transition }}" data-delay="{{ delay }}" data-duration="{{ duration }}" style="{{ bgColor }}">
+				{{# objects }}	
+					<div class="object {{ type }}" style="top:{{ top }}; left:{{ left }}" data-slider="{{ data }}" >{{{ html }}}</div>
+				{{/ objects }}
+			</li>   
+		{{/ slides }}
+	</ul>
+	<a class="prev nav" href="#">‹</a>
+	<a class="next nav" href="#">›</a>
+</div> 
+<script type="text/javascript">   
+	jQuery(document).ready(function ($) {
+		$('#{{ slider_html_id }}').KickAssSlider({
+			cycle 				: 	{{ cycle }},
+			shuffle				: 	{{ shuffle }},
+			firstSlideIndex 	: 	{{ firstSlideIndex }},
+			autoPlay 			: 	{{ autoPlay }}, 
+			pauseOnHover 		: 	{{ pauseOnHover }},
+			autoPlayDelay 		: 	{{ autoPlayDelay }},
+			animateFirstSlide 	: 	{{ animateFirstSlide }},
+			keyBoardNav 		: 	{{ keyBoardNav }}
+		});
+	});  
+</script>
+{{/ slider }}

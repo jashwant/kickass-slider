@@ -1,0 +1,84 @@
+{{# slide }}
+<ul class="panel">
+	<li>
+		<span class="label">Background</span>
+		<input type="button" data-uploader-button-text="Insert BG" data-uploader-title="Add background image to your slider" data-action="bg-upload" class="button" value="Select image"  />
+		<input type="button" class="button remove-bg" data-action='remove-background-image' value="Remove image" />
+		<input type="text" class="color-picker" value="{{ bgColor }}" placeholder="Choose color" title="Background-color" /> 
+		<span class="maximize alignright" data-action="maximize-container"></span>
+	</li>
+	<li> 
+		<span class="label">Objects</span>
+		<input type="button" value="Add text"  data-action="add-text" class="button" />
+		<input type="button" value="Add image" class="button" data-uploader-button-text="Insert image" data-uploader-title="Add image in your slider" data-action="img-upload" />
+		<input type="button" value="Add video" class="button"  data-action="add-video" /> 
+		<input type="button" data-action="delete-slide" class="button alignright button-danger" value="Delete Slide" /> 
+	</li>   
+	<li class="slideContainer" style="{{ bgStyle }}"> 
+		{{# slide.objects }} 
+			<div class="object {{ type }}" data-slider="{{ data }}" style="top:{{ top }};left:{{ left }}">{{{ html }}}</div>
+		{{/ slide.objects }} 
+	</li> 
+	<li>
+		<label> 
+			Transition:
+			<select class="slide-transition">
+				{{# transitions }}  
+				  {{> select }}
+				{{/ transitions }}
+			</select>
+		</label>
+		<div class="alignright">
+			<label>
+				Duration 
+				<input type="text" class="slide-duration small-text" value="{{ duration }}" />
+			</label> 
+			<label>
+				Delay
+				<input type="text" class="slide-delay small-text" value="{{ delay }}" />
+			</label>
+		</div> 
+	</li>
+</ul>
+<script type="text/html" id="slide-template">
+	<ul class="panel">
+		<li>
+			<span class="label">Background</span>
+			<input type="button" data-uploader-button-text="Insert BG" data-uploader-title="Add background image to your slider" data-action="bg-upload" class="button" value="Select image"  />
+			<input type="button" class="button remove-bg" disabled data-action='remove-background-image' value="Remove image" />
+			<input type="text" class="color-picker" value="{{ bgColor }}" placeholder="Choose color" title="Background-color" /> 
+			<span class="maximize alignright" data-action="maximize-container"></span>
+		</li>
+		<li> 
+			<span class="label">Objects</span>
+			<input type="button" value="Add text"  data-action="add-text" class="button" />
+			<input type="button" value="Add image" class="button" data-uploader-button-text="Insert image" data-uploader-title="Add image in your slider" data-action="img-upload" />
+			<input type="button" value="Add video" class="button"  data-action="add-video" /> 
+			<input type="button" data-action="delete-slide" class="button alignright button-danger" value="Delete Slide" /> 
+		</li>  
+
+		<li class="slideContainer"> 
+		</li> 
+		<li>
+			<label> 
+				Transition:
+				<select class="slide-transition">
+					{{# transitions }}  
+					  {{> select }}
+					{{/ transitions }}
+				</select>
+			</label>
+			<div class="alignright">
+				<label>
+					Duration 
+					<input type="text" class="slide-duration small-text" value="{{ duration }}" />
+				</label> 
+				<label>
+					Delay
+					<input type="text" class="slide-delay small-text" value="{{ delay }}" />
+				</label>
+			</div> 
+		</li>
+	</ul> 
+</script> 
+{{/ slide }}

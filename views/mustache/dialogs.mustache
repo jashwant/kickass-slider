@@ -1,0 +1,169 @@
+<ul id="text-dialog" class="object-dialog hidden">
+    <li>
+        <label><span>Top</span><input type="text" class="top" /></label>
+        <label><span>Left</span><input type="text" class="left" /></label>
+        <input type="button" class="button button-danger delete-object alignright" title="Delete the object" value="Delete" />
+    </li>    
+
+    <li class="editorBox"> 
+       <textarea id="editor" class="text" style="width:300px"></textarea>
+    </li>
+
+    <li class="clearfix">
+        <label class="alignleft">
+            <span class="label">Transition</span> 
+            <select class="transition"> 
+                {{# transitions }}
+                    {{> select }}
+                {{/ transitions }}
+            </select>
+        </label>
+
+        <label class="alignright">
+            <span class="label">Easing</span>
+            <select class="easing">
+                {{# easings }}
+                    {{> select }}
+                {{/ easings }}
+            </select>
+        </label> 
+    </li>
+    <li>
+        <label class="alignleft">
+            <span class="label">Duration</span><input type="text" class="duration" value="" />
+        </label>
+        <label class="alignright">
+            <span class="label">Delay</span><input type="text" class="delay" value="" />
+        </label> 
+    </li>
+    <li>
+        <input type="button" class="button save-dialog button-primary" value="Save" />
+    </li>
+</ul> 
+ 
+<ul id="img-dialog" class="object-dialog hidden"> 
+    <li>
+        <label><span>Top</span><input type="text" class="top" /></label>
+        <label><span>Left</span><input type="text" class="left" /></label>
+        <input type="button" class="button button-danger delete-object alignright" title="Delete the object" value="Delete" />
+    </li> 
+
+    <li class="clearfix">
+        <img src="" class="thumb alignleft" />
+        <div class="alignleft">
+            <label><span>Alt</span><input type="text" class="alt" /></label><br>
+            <input type="button" class="button change-img" value="Change Image" />
+        </div>
+    </li> 
+
+    <li class="clearfix">
+        <label class="alignleft">
+            <span class="label">Transition</span> 
+            <select class="transition"> 
+                {{# transitions }}
+                    {{> select }}
+                {{/ transitions }}
+            </select>
+        </label> 
+        <label class="alignright">
+            <span class="label">Easing</span> 
+            <select class="easing">
+                {{# easings }}
+                    {{> select }}
+                {{/ easings }}
+            </select>
+        </label>
+    </li>  
+
+    <li>
+        <label class="alignleft">
+            <span class="label">Duration</span><input type="text" class="duration" value="" />
+        </label>
+        <label class="alignright">
+            <span class="label">Delay</span><input type="text" class="delay" value="" />
+        </label>     
+    </li>
+
+    <li>
+        <input type="button" class="button save-dialog" value="Save" />
+    </li>
+</ul> 
+ 
+<ul id="video-dialog" class="object-dialog hidden">
+    <li>
+        <label><span>Top</span><input type="text" class="top" /></label>
+        <label><span>Left</span><input type="text" class="left" /></label>
+        <input type="button" class="button button-danger delete-object alignright" title="Delete the object" value="Delete" />
+    </li> 
+
+    <li class="clearfix">
+        <div class="alignleft">
+            <label><span>Youtube</span><input type="radio" value="youtube" class="video-type" name="video-type"  /></label>
+            <label><span>Vimeo</span><input type="radio" value="vimeo" class="video-type" name="video-type"  /></label>
+        </div>
+        <label class="alignright"><span class="label">Video id</span><input type="text" class="text" /></label>
+    </li>
+    
+    <li class="clearfix">
+        <label class="alignleft">
+            <span class="label">Transition</span> 
+            <select class="transition"> 
+                {{# transitions }}
+                    {{> select }}
+                {{/ transitions }}
+            </select>
+        </label>
+
+        <label class="alignright">
+            <span class="label">Easing</span>
+            <select class="easing">
+                {{# easings }}
+                    {{> select }}
+                {{/ easings }}
+            </select>
+        </label>
+    </li> 
+
+    <li class="clearfix">
+        <label class="alignleft">
+            <span class="label">Duration</span><input type="text" class="duration" value="" />
+        </label>
+        <label class="alignright">
+            <span class="label">Delay</span><input type="text" class="delay" value="" />
+        </label> 
+    </li>
+
+    <li>
+        <input type="button" class="button save-dialog" value="Save" />
+    </li>
+</ul>
+
+<div id="add-video-dialog" class="hidden">  
+    <label><span class="label">Youtube</span> 
+        <input type="radio" value="youtube" checked="checked" class="video-type" name="video-type" />
+    </label>
+    <label><span class="label">Vimeo</span>
+        <input type="radio" class="video-type" value="vimeo" name="video-type" />
+    </label>    
+    <br><br>
+    <label>
+        <span class="label">Enter video id</span><br>
+        <input type="text" placeholder="" value="46JhI6EvGbE" class="video-id"/>
+    </label>
+    <input type="button" class="button" id="fetchVideo" value="Add" /> 
+</div>
+
+<div id="slider-preview-dialog">
+    <iframe id="preview_slider" name="preview_slider"></iframe> 
+</div>
+
+<div id="import-dialog" class="hidden"> 
+    <form action="" method="post" enctype="multipart/form-data" >
+        <label>
+            Choose a file from your computer <br><br>
+            <input type="file" name="import_sliders" />
+        </label>
+        <br><br>
+        <input type="submit" class="button-primary button" value="Import" />
+    </form>
+</div>
