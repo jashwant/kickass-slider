@@ -5,18 +5,187 @@
    ========================================================================== */
 
 
+html, body {
+    height: 100%;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	/* Negative indent footer by it's height */
+	margin: 0 auto -50px;
+}
+
+/* Set the fixed height of the footer here */
+#pusher, #footer {
+	height: 50px;
+}
 
 
 
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+	#footer {
+	  margin-left: -20px;
+	  margin-right: -20px;
+	  padding-left: 20px;
+	  padding-right: 20px;
+	}
+}
+
+#masthead{
+	padding: 8px 0 5px;
+}
+#branding {
+	margin: 0 20px;
+}
+#site-title a{
+	font-size: 1.5em;
+	color: #E25A5A ;/*#67B7E1*/
+}
+#site-description{ 
+	font-size: 0.8em;
+	color: #505050; /* #656464;*/
+	margin-top: -2px;
+}
+
+#header { 
+    border-bottom: 1px solid #E6E6E6;
+    border: 1px solid #d4d4d4;
+	border-top: 3px solid #00ADEE;
+
+    min-height: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #f8f8f8;
+	background-image: -moz-linear-gradient(top, #ffffff, #f8f8f8);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f8f8f8));
+	background-image: -webkit-linear-gradient(top, #ffffff, #f8f8f8);
+	background-image: -o-linear-gradient(top, #ffffff, #f8f8f8);
+	background-image: linear-gradient(to bottom, #ffffff, #f8f8f8);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff8f8f8', GradientType=0);
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+} 
+
+#access { 
+	margin-top: -11px;
+}
+ 
+#access .navbar .nav > li { 
+	margin: 0 5px;
+	padding-top: 14px;
+}
+#access .navbar .nav > li > a {  
+	text-shadow: 1px 1px 1px #E6E6E6;
+	font-size: 15px;
+	color: #44ADB8;
+	padding: 7px 5px;
+	font-family: Georgia, Verdana;
+}
+#access .navbar .nav > li > a:hover {
+	color: #656464;  
+}
+
+#access .navbar .nav > li.current{
+	border-top: 3px solid #E25A5A;
+}
+#access .navbar .nav > li.current > a {
+	margin-top: -3px;
+}
+#menu-primary {
+	border-radius:12px; 
+} 
+
+#content { 
+	width  : 100%;
+	margin : 100px auto 60px;
+}
+
+#features > h3 {
+	color: #F96E5B;
+	margin-top: 0;
+}
+
+#features > ul { 
+} 
+
+#features > ul > li.label { 
+	font-weight: bold;
+}
+
+#features > ul > li {
+	padding: 2px;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 6px;
+    	 -moz-border-radius: 6px;
+        	border-radius: 6px;
+}
+
+#features > ul > li > div.lbl {
+	-webkit-border-radius: 6px;
+    	 -moz-border-radius: 6px;
+        	border-radius: 6px;
+
+	background-color : #479AB3;
+	padding: 8px 12px;
+	font-weight: bold;
+	font-size: 14px; 
+	text-align: center;
+	line-height: 18px; 
+	display: block;
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
 
 
+#features > ul > li > div.desc {
+	padding: 8px;
+	font-size: 13px;
+	color: #555;
+	height: 155px;
+	overflow: hidden;
+}
+
+.sliderContainer > .shadow {
+	width: 100%;
+	height: 168px;
+	position: relative;
+	margin-top: -110px;
+	background: transparent url(../img/shadow.png) no-repeat bottom center;
+	background-size: 100% 100%;
+	z-index: -1; 
+}
+
+#paypal-form {
+	margin:	0;
+	font-size: 13px;
+}
+
+#paypal-form [type="submit"] {
+	margin-bottom: 10px;
+}
 
 
+#paypal-form select {
+	height: 25px;
+	font-size: 12px; 
+} 
 
+#footer {
+	background-color: #f5f5f5;
+	color: #555;
+}
 
+#footer .container {
+	line-height: 30px;
+	padding-top: 15px; 
+} 
 
-
-
-
-
-
+.slider > li > .object img {
+	max-width: none;
+}

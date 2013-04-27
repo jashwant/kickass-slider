@@ -6,49 +6,172 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Kickass Slider</title>
+        <title>Kick Ass Slider</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+ 
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/kickass.css">
         <link rel="stylesheet" href="css/main.css">
-
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+    <body> 
+        <div id="wrap"> 
+            <div class="container">  
+                <div id="header" class='navbar navbar-fixed-top' >
+                  <div id="masthead" class='container'> 
+                    <div id="branding" class='pull-left'>
+                        <div id="site-title">
+                          <a href="" title="Kick Ass Slider" rel="home">Kick Ass Slider</a>
+                        </div>
+                        <div id="site-description"># exactly what name suggests</div>
+                    </div><!-- #branding -->  
+                    <nav id="access" class="clearfix pull-right" role="navigation">
+                      <div class='navbar'> 
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </a>
+                        <div class='nav-collapse'>
+                          <ul id="menu-primary" class="nav">
+                            <li class="current">
+                              <a href="">Home</a>
+                            </li>
+                            <li>
+                              <a href="https://github.com/jashwant/kickass-Slider">Github</a>
+                            </li>
+                          </ul>
+                        </div>  
+                      </div>
+                    </nav><!-- #access -->   
+                  </div><!-- #masthead -->   
+                </div><!-- #header --> 
+                <div id="content">
+                   <div id="kickass-slider1" class="sliderContainer">
+                    <ul class="slider"> 
+                        <li data-transition="cuboidRotateLeft" data-delay="0" data-duration="1000" style="display: list-item; width: 100%; height: 100%; left: 0px; top: 0px;" class="">
+                            <div class="object bg" style="top:0%; left:0%" data-slider='{"type":"bg","easing":"linear","transition":"slideLeft","duration":"800","top":"0%","left":"0%"}'><img src="img/sky.jpg"></div>
+                            <div class="object img" style="top: 15%; left: 43%; opacity: 1;" data-slider='{"type":"img","easing":"easeInQuad","transition":"slideBottomLeft","duration":"3500","top":"15%","left":"43%","delay":"500"}'><img alt="" src="img/paraglider.png"></div>
+                            <div class="object img" style="top: -3%; left: 43%; opacity: 1;" data-slider='{"type":"img","easing":"easeInQuad","transition":"slideTopLeft","duration":"3500","delay":"1500","top":"-3%","left":"43%"}'><img alt="" src="img/balloons.png"></div>
+                            <div class="object img" style="top: -35%; left: 11%; opacity: 1;" data-slider='{"type":"img","easing":"easeInOutSine","transition":"slideTop","duration":"3500","delay":"800","top":"-35%","left":"11%"}'><img alt="" src="img/hot_air_balloon.png"></div>
+                        </li>
+                        <li data-transition="rubikDispersedRotateDown" data-delay="0" data-duration="1000" style="display: list-item; width: 100%; height: 100%; left: 0px; top: 0px;">
+                            <div class="object bg" style="top:0%; left:0%" data-slider='{"type":"bg","easing":"linear","transition":"slideLeft","duration":"800","top":"0%","left":"0%"}'><img src="img/sea_bg.jpg"></div>
+                            <div class="object img" style="top: 26%; left: -1%; opacity: 1;" data-slider='{"type":"img","easing":"easeOutSine","transition":"slideLeft","duration":"10800","delay":"0","top":"26%","left":"-1%"}'><img alt="" src="img/yellow_fish_large.png"></div>
+                            <div class="object img" style="top: 22%; left: 53%; opacity: 1;" data-slider='{"type":"img","easing":"easeInOutSine","transition":"slideTopRight","duration":"10000","delay":"1500","top":"22%","left":"53%"}'><img alt="" src="img/turtle.png"></div>
+                            <div class="object img" style="top: 0%; left: 99%; opacity: 1;" data-slider='{"type":"img","easing":"easeInOutSine","transition":"slideRight","duration":"9400","delay":"1200","top":"0%","left":"99%"}'><img alt="" src="img/striped_fish.png"></div>
+                            <div class="object img" style="top: 76%; left: 86%; opacity: 1;" data-slider='{"type":"img","easing":"easeInQuad","transition":"slideBottom","duration":"5500","delay":"1000","top":"76%","left":"86%"}'><img alt="" src="img/starfish.png"></div>
+                            <div class="object img" style="top: 42%; left: 14%; opacity: 1;" data-slider='{"type":"img","easing":"easeInQuad","transition":"slideLeft","duration":"9500","delay":"0","top":"42%","left":"14%"}'><img alt="" src="img/yellow_fish_small.png"></div>
+                            <div class="object img" style="top: 16%; left: 5%; opacity: 1;" data-slider='{"type":"img","easing":"easeInQuad","transition":"slideLeft","duration":"9500","delay":"800","top":"16%","left":"5%"}'><img alt="" src="img/yellow_fish_small.png"></div>
+                            <div class="object img" style="top: -31%; left: 14%; opacity: 1;" data-slider='{"type":"img","easing":"easeInQuad","transition":"slideTop","duration":"5000","delay":"0","top":"-31%","left":"14%"}'><img alt="" src="img/jellyfish.png"></div>
+                            <div class="object text" style="top: 14%; left: 35%; opacity: 0;" data-slider='{"type":"text","easing":"easeOutBack","transition":"fadeOut","duration":"2000","delay":"1200","top":"14%","left":"35%"}'><p style="text-align: center;"><span style="font-size: 40px; color: yellow; opacity: 0.6;"><span style="font-family: comic sans ms,sans-serif;"><strong><em>Design&nbsp;cool&nbsp;</em></strong></span></span></p><p style="text-align: center;"><span style="font-size: 40px; color: yellow; opacity: 0.6;"><span style="font-family: comic sans ms,sans-serif;"><strong><em>animations</em></strong></span></span></p></div>
+                        </li>
+                      
+                        <li data-transition="rubikRotateRight" data-delay="0" data-duration="1000" style="display: list-item;">
+                            <div class="object bg" style="top:0%; left:0%" data-slider='{"type":"bg","easing":"linear","transition":"slideLeft","duration":"800","top":"0%","left":"0%"}'><img src="img/flower_bg.jpg"></div>
+                            <div class="object video" style="top:41%; left:0%" data-slider='{"type":"video","easing":"easeOutBack","transition":"slideLeft","duration":"1200","delay":"0","videoType":"youtube","videoID":"UTBQYAE-pMk","top":"41%","left":"0%"}'><div class="mask"></div><iframe allowfullscreen="true" src="http://www.youtube.com/embed/UTBQYAE-pMk?hd=1&amp;wmode=opaque&amp;controls=0&amp;modestbranding=1&amp;showinfo=0&amp;rel=0" style="width: 100%; height: 100%;" type="text/html" frameborder="0"></iframe></div>
+                            <div class="object text" style="top:14%; left:61%" data-slider='{"type":"text","easing":"easeOutBack","transition":"slideBottomRight","duration":"1000","delay":"3000","top":"14%","left":"61%"}'><form style="background: #f2f2f2; font-size: 14px; width: 284px; border: 1px solid #cac7bd; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; padding: 2px 2px 2px 5px;" onsubmit="alert('Its demo. It doesnt not work. Dont throw your email for spammers');return false;"><input style="border: none; padding: 6px 0 6px 6px; color: #555; width: 195px; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;margin:0;" placeholder="Give me your email Address" value="" type="email"> <input class="submit" style="border: none; background: #F96E5B; color: #fff; padding: 6px 10px; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; cursor: pointer; margin:0;text-shadow: #B3B3D7 0 0 1px; line-height: 18px;" name="subscribe" value="Sign Up !" type="submit"></form></div>
+                            <div class="object text" style="top:55%; left:44%" data-slider='{"type":"text","easing":"easeOutBack","transition":"fadeIn","duration":"800","delay":"2000","top":"55%","left":"44%"}'><h1 style="text-align: center; color: red; opacity: 0.7;"><span style="font-family: comic sans ms,sans-serif; font-size: x-large;"><em><strong><span style="opacity: 0.7;">Play videos</span></strong></em></span></h1></div>
+                            <div class="object img" style="top:68%; left:38%" data-slider='{"type":"img","easing":"easeOutBack","transition":"slideRight","duration":"1000","top":"68%","left":"38%","delay":"1500"}'><img alt="" src="img/rightToLeft.png"></div>
+                            <div class="object text" style="top:28%; left:45%" data-slider='{"type":"text","easing":"easeOutBack","transition":"slideBottom","duration":"800","delay":"4000","top":"28%","left":"45%"}'><h1 style="text-align: center; color: red; opacity: 0.7;"><span style="font-size: 40px; color: yellow; opacity: 0.6;"><span style="font-family: comic sans ms,sans-serif;"><strong><em><span style="font-size: x-large;">Insert HTML</span><br></em></strong></span></span></h1></div>
+                            <div class="object img" style="top:5%; left:50%" data-slider='{"type":"img","easing":"easeInQuad","transition":"slideTop","duration":"500","top":"5%","left":"50%","delay":"3500"}'><img alt="" src="img/leftToRight.png"></div>
+                            <div class="object img" style="top:46%; left:68%" data-slider='{"type":"img","easing":"easeOutBack","transition":"slideLeft","duration":"3000","delay":"2500","top":"46%","left":"68%"}'><img src="img/butterfly.png" alt=""></div>
+                        </li>   
+                        <li data-transition="zoomOut" data-delay="0" data-duration="1000" style="display: list-item;">
+                            <div class="object bg" style="top:0%; left:0%" data-slider='{"type":"bg","easing":"linear","transition":"slideLeft","duration":"800","top":"0%","left":"0%"}'><img src="img/abstract_bg.jpg"></div>
+                            <div class="object img" style="top:47%; left:50%" data-slider='{"type":"img","easing":"easeInSine","transition":"slideTopLeft","duration":"800","delay":"2000","top":"47%","left":"50%"}'><img alt="" src="img/colorful_circle1.png"></div>
+                            <div class="object img" style="top:50%; left:27%" data-slider='{"type":"img","easing":"easeOutSine","transition":"slideBottomRight","duration":"800","delay":"4000","top":"50%","left":"27%"}'><img alt="" src="img/colorful_circle2.png"></div>
+                            <div class="object img" style="top:47%; left:4%" data-slider='{"type":"img","easing":"easeOutBack","transition":"slideTop","duration":"800","delay":"0","top":"47%","left":"4%"}'><img alt="" src="img/colorful_circle3.png"></div>
+                            <div class="object text" style="top:76%; left:34%" data-slider='{"type":"text","easing":"easeOutBack","transition":"slideBottom","duration":"800","delay":"3800","top":"76%","left":"34%"}'><p style="text-align: center;"><strong><span style="font-style:italic">Free !</span></strong></p></div>
+                            <div class="object text" style="top:71%; left:56%" data-slider='{"type":"text","easing":"easeOutBack","transition":"slideLeft","duration":"800","delay":"2800","top":"71%","left":"56%"}'><p style="text-align: center;"><em><strong><span style="font-size: 20px;">Awesome <br>admin panel</span></strong></em></p></div>
+                            <div class="object img" style="top:12%; left:16%" data-slider='{"type":"img","easing":"easeOutExpo","transition":"slideBottomRight","duration":"800","top":"12%","left":"16%","delay":"3000"}'><img alt="" src="img/colorful_circle2.png"></div>
+                            <div class="object text" style="top:26%; left:16%" data-slider='{"type":"text","easing":"easeOutBack","transition":"slideLeft","duration":"800","delay":"0","top":"26%","left":"16%"}'><h5><span style="font-size: 20px;">&nbsp;</span></h5></div>
+                            <div class="object text" style="top:69%; left:9%" data-slider='{"type":"text","easing":"easeInOutBack","transition":"slideBottomLeft","duration":"800","delay":"800","top":"69%","left":"9%"}'><p style="text-align: center;"><strong><em><span style="font-size: 20px; text-align: center; display: inline-block;">CSS3 <br>Animations</span></em></strong></p></div>
+                            <div class="object text" style="top:88%; left:79%" data-slider='{"type":"text","easing":"easeOutBack","transition":"fadeIn","duration":"800","delay":"4000","top":"88%","left":"79%"}'><p><a href="https://github.com/jashwant/kickass-slider/archive/master.zip" style="display: inline-block; *display: inline; *zoom: 1; padding: 11px 18px; margin-bottom: 0; font-size: 18px; line-height: 20px; *line-height: 20px; text-align: center; vertical-align: middle; cursor: pointer; color: #ffffff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); background-color: #006dcc; background-image: linear-gradient(to bottom, #0088cc, #0044cc); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0); border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); *background-color: #0044cc; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; *margin-left: .3em; -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05); -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05); box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);">Download now !</a></p></div>
+                            <div class="object img" style="top:11%; left:38%" data-slider='{"type":"img","easing":"easeInQuad","transition":"slideBottomLeft","duration":"800","delay":"1500","top":"11%","left":"38%"}'><img alt="" src="img/colorful_circle3.png"></div>
+                            <div class="object text" style="top:36%; left:23%" data-slider='{"type":"text","easing":"easeOutBack","transition":"slideTopRight","duration":"800","delay":"3000","top":"36%","left":"23%"}'><p style="text-align: center;"><span style="font-size: 30px;"><strong><em>Cool</em></strong></span></p></div>
+                            <div class="object text" style="top:33%; left:43%" data-slider='{"type":"text","easing":"easeInOutBack","transition":"slideRight","duration":"1000","delay":"2700","top":"33%","left":"43%"}'><p style="text-align: center;"><em><strong><span style="font-size: 20px;">Easy to use</span></strong></em></p></div>
+                        </li>   
+                        <li data-transition="slideTop" data-delay="0" data-duration="1000" style="display: list-item;" class="">
+                            <div class="object bg" style="top:0%; left:0%" data-slider='{"type":"bg","easing":"linear","transition":"slideLeft","duration":"800","top":"0%","left":"0%"}'><img src="img/orange_bg.jpg"></div>
+                            <div class="object img" style="top:17%; left:14%" data-slider='{"type":"img","easing":"linear","transition":"slideLeft","duration":"800","top":"17%","left":"14%"}'><img src="img/shrubs.png"></div>
+                            <div class="object img" style="top:28%; left:79%" data-slider='{"type":"img","easing":"easeInQuad","transition":"fadeIn","duration":"800","delay":"800","top":"28%","left":"79%"}'><img alt="" src="img/red_flower.png"></div>
+                            <div class="object img" style="top:29%; left:1%" data-slider='{"type":"img","easing":"easeInQuad","transition":"fadeIn","duration":"800","delay":"0","top":"29%","left":"1%"}'><img alt="" src="img/daisy.png"></div>
+                            <div class="object img" style="top:29%; left:84%" data-slider='{"type":"img","easing":"easeInQuad","transition":"fadeIn","duration":"800","delay":"1000","top":"29%","left":"84%"}'><img alt="" src="img/daisy.png"></div>
+                            <div class="object img" style="top:46%; left:14%" data-slider='{"type":"img","easing":"easeOutBack","transition":"fadeOut","duration":"10","delay":"3500","top":"46%","left":"14%"}'><img alt="" src="img/dog.png"></div>
+                            <div class="object img" style="top:5%; left:14%" data-slider='{"type":"img","easing":"easeInQuad","transition":"fadeIn","duration":"10","delay":"3500","top":"5%","left":"14%"}'><img alt="" src="img/dog_head.png"></div>
+                            <div class="object img" style="top:50%; left:0%" data-slider='{"type":"img","easing":"easeInQuad","transition":"fadeIn","duration":"10","delay":"3500","top":"50%","left":"0%"}'><img alt="" src="img/dog_tail.png"></div>
+                            <div class="object img" style="top:71%; left:13%" data-slider='{"type":"img","easing":"easeInQuad","transition":"fadeIn","duration":"10","delay":"3500","top":"71%","left":"13%"}'><img alt="" src="img/dog_legs.png"></div>
+                            <div class="object img" style="top:30%; left:-57%" data-slider='{"type":"img","easing":"easeOutSine","transition":"slideLeft","duration":"4500","delay":"2000","top":"30%","left":"-57%"}'><img alt="" src="img/train.png"></div>
+                        </li>   
+                    </ul>
+                    <div class="shadow"></div>
+                    <a class="prev nav" href="#" style="opacity: 0;">‹</a>
+                    <a class="next nav" href="#" style="opacity: 0;">›</a>
+                  </div>
+                </div>
+                <hr> 
+                <div id="features" class="row-fluid">
+                    <h3>Features</h3> 
+                    <ul class="inline">
+                      <li class="span3">
+                        <div class="lbl">Free</div>
+                        <div class="desc">
+                            KickAss is completely free (distributed under MIT License). However, if you appreciate good work, you can donate  (by clicking 'Buy my time' button at footer). It aids to my work, time, life and my belief for MIT License ;)                        
+                        </div> 
+                      </li>
+                      <li class="span3">
+                        <div class="lbl">Click &amp; drag admin panel</div>
+                        <div class="desc">
+                            KickAss has been released as a wordpress plugin. 
+                            The admin panel is designed beautifully &amp; carefully, keeping wp's look &amp; feel. Creating slides, adding images, choosing animations or adding text with WYSIWYG editor is as easy as pie &amp; supported natively by wp core.
+                        </div>
+                      </li>
+                      <li class="span3">
+                        <div class="lbl">CSS3 transitions</div>
+                        <div class="desc">
+                            KickAss is powered with CSS3's awesomeness. No javascript / jQuery is used for animations (transitions). That means no flickering or uneven animation, even in the tablets and mobiles.
+                        </div>
+                      </li>
+                      <li class="span3">
+                        <div class="lbl">jQuery fallback on dumb browsers</div>
+                        <div class="desc">
+                            KickAss is developed keeping modern browsers (CSS3) in mind. But among all good, exists the evil. For browsers not supporting
+                            standards (You-Know-Who), jQuery fallbacks are deployed along with CSS3,
+                            to resonate the same effect in its absence. 
+                        </div>
+                      </li>
+                    </ul>
+                </div>
+                <br><br><br> 
+            </div> <!-- /container -->
+            <div id="pusher"></div>
+        </div>
 
-        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-
-        
-
-        <div class="container"> 
-            <header>
-                <h1>Kickass Slider</h1>
-            </header>
-
-
-            <footer> 
-            </footer>
-
-        </div> <!-- /container -->
+        <footer id="footer">
+            <div class="container">
+                <p class="pull-left">Author <a href="http://twitter.com/jashwant">@jashwant</a></p>
+                <form id="paypal-form" class="pull-right" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="on0" value="Generosity Level">Generosity Level
+                    &nbsp;
+                    <select name="os0">
+                        <option value="Noob">Noob $5.00 USD</option>
+                        <option value="Intermediate">Intermediate $10.00 USD</option>
+                        <option value="Pro">Pro $15.00 USD</option>
+                    </select> 
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+                    ">
+                    &nbsp;
+                    <input type="submit" class="btn btn-primary btn-small" value="Buy my time">
+                </form>  
+            </div>
+        </footer>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.js"><\/script>')</script>
-
-        <script src="js/vendor/bootstrap.min.js"></script>
-
-        <script src="js/plugins.js"></script>
+        <script src="js/jquery.kickass.js"></script>
         <script src="js/main.js"></script>
-
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
     </body>
 </html>
