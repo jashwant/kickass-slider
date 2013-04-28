@@ -88,8 +88,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         this.nextSlideIndex     = this.options.firstSlideIndex;
         this.nextSlide          = this.slides.filter(':nth-child(' + this.nextSlideIndex + ')');
         this.nextSlideObjects   = this.nextSlide.find('.object');
-        // Converted isAnimating from bool to int due to transit's incapability to stop animation.
-        this.isAnimating = 0;
+        this.isAnimating = false;
 
         //jQuery imagesLoaded plugin v2.1.0 (http://github.com/desandro/imagesloaded)
         // Using as function, as in future thinking to supply filtered list of images.
@@ -288,6 +287,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
  
             // Handling option - hideNavOnMouseOut
             if(this.options.hideNavOnMouseOut) {
+                var self = this;
                 this.$element.on({
                     mouseenter: function() { 
                        self.navs.stop().transition({'opacity': 1 },500,'swing');
@@ -312,11 +312,11 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
             });
         },
  
-        startAutoPlay: function(delay) {  
+        startAutoPlay: function(delay) {
             if(this.options.autoPlay && !this.isPaused) {
                 var self = this;
                 self.stopAutoPlay(); 
-                self.autoPlayTimer = setTimeout(function() {
+                self.autoPlayTimer = setTimeout(function() {  
                     self.options.autoPlayDirection === 1 ? self.next(): self.prev(); //go to either the next or previous frame
                 }, delay);
             }
@@ -327,7 +327,6 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         },
 
         pause: function(hardPause) {
-            var self = this;
             if(!this.isPaused) {
                 this.isPaused = true;
                 this.isHardPaused = hardPause;
@@ -336,13 +335,13 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
             else { 
                 this.isPaused = false;
                 this.isHardPaused = false;
-                if(self.isAnimating === 0) {
+                if(!this.isAnimating) {
                     this.startAutoPlay(this.options.autoPlayDelay);
                 }
             }
         },  
 
-        next: function() {  
+        next: function() { 
             if(this.currentSlideIndex === this.slidesCount) {
                 if(this.options.cycle) {
                     this.nextSlideIndex = 1;
@@ -373,7 +372,10 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         },  
 
         goToSlide: function(id) {
-            this.isAnimating += 1;
+            if( this.isAnimating ) return;
+
+            this.isAnimating = true; 
+
             this.currentSlide   =  this.slides.filter(':nth-child('+ this.currentSlideIndex +')');
             this.nextSlide      =  this.slides.filter(':nth-child(' + id + ')'); 
             
@@ -887,7 +889,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
             // Animate next slide
             var self = this;
             this.nextSlide
-                .stop(true,true)
+                .stop(true,false)
                 .delay(nextSlideData.delay)
                 .transition(nextSlideTransition, nextSlideData.duration, 'swing', function () {
                     self.slideAnimationCompleted();
@@ -895,7 +897,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
  
             // Animate current slide 
             this.currentSlide  
-                 .stop(true,true).transition(currentSlideTransition, 2 * currentSlideData.duration , 'swing', function () {
+                 .stop(true,false).transition(currentSlideTransition, 2 * currentSlideData.duration , 'swing', function () {
                     //this.find('.object').not('.bg').css('opacity',0);
                     //this.css({'width' : '100%', 'height' : '100%'});
                 });
@@ -1044,16 +1046,13 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
 
                 $object
                     .css(css)
-                    .stop(true,true)
+                    .stop(true,false)
                     .delay(objectData.delay)
-                    .transition(transition,objectData.duration,objectData.easing, function() { 
-                        // All animations have been completed
+                    .transition(transition,objectData.duration,objectData.easing, function() {
                         if(--objectsCount === 0) {
-                            // Ignore previous animating objects
-                            self.isAnimating -= 1;
-                            if(self.isAnimating === 0) {
-                                self.startAutoPlay(self.options.autoPlayDelay);
-                            }
+                            self.isAnimating = false; 
+                            self.startAutoPlay(self.options.autoPlayDelay); 
+                            // All animations have been completed
                         }
                     }); 
             });
