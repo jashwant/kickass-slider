@@ -287,7 +287,6 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
  
             // Handling option - hideNavOnMouseOut
             if(this.options.hideNavOnMouseOut) {
-                var self = this;
                 this.$element.on({
                     mouseenter: function() { 
                        self.navs.stop().transition({'opacity': 1 },500,'swing');
@@ -312,11 +311,11 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
             });
         },
  
-        startAutoPlay: function(delay) {
+        startAutoPlay: function(delay) {  
             if(this.options.autoPlay && !this.isPaused) {
                 var self = this;
                 self.stopAutoPlay(); 
-                self.autoPlayTimer = setTimeout(function() {  
+                self.autoPlayTimer = setTimeout(function() {
                     self.options.autoPlayDirection === 1 ? self.next(): self.prev(); //go to either the next or previous frame
                 }, delay);
             }
@@ -327,7 +326,6 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         },
 
         pause: function(hardPause) {
-            var self = this;
             if(!this.isPaused) {
                 this.isPaused = true;
                 this.isHardPaused = hardPause;
@@ -336,11 +334,13 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
             else { 
                 this.isPaused = false;
                 this.isHardPaused = false;
-                this.startAutoPlay(this.options.autoPlayDelay);
+                if(!this.isAnimating) {
+                    this.startAutoPlay(this.options.autoPlayDelay);
+                }
             }
         },  
 
-        next: function() { 
+        next: function() {  
             if(this.currentSlideIndex === this.slidesCount) {
                 if(this.options.cycle) {
                     this.nextSlideIndex = 1;
@@ -371,10 +371,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         },  
 
         goToSlide: function(id) {
-            if( this.isAnimating ) return;
-
-            this.isAnimating = true; 
-
+            this.isAnimating = true;
             this.currentSlide   =  this.slides.filter(':nth-child('+ this.currentSlideIndex +')');
             this.nextSlide      =  this.slides.filter(':nth-child(' + id + ')'); 
             
@@ -407,7 +404,6 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                     // Do nothing
                 }
             }
-
 
             if(transition === 'slideTop') { 
                 currentSlideTransition = {
@@ -868,7 +864,6 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                     if( pos === options.cuboidsCount - 1 ) {
                         self.slider.css( 'overflow', 'hidden' );
                         self.slides.show();
-                        self.isAnimating = false;
                         self.$box.remove();  
                         self.slideAnimationCompleted();
                     }
@@ -889,7 +884,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
             // Animate next slide
             var self = this;
             this.nextSlide
-                .stop(true,false)
+                .stop(true,true)
                 .delay(nextSlideData.delay)
                 .transition(nextSlideTransition, nextSlideData.duration, 'swing', function () {
                     self.slideAnimationCompleted();
@@ -897,7 +892,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
  
             // Animate current slide 
             this.currentSlide  
-                 .stop(true,false).transition(currentSlideTransition, 2 * currentSlideData.duration , 'swing', function () {
+                 .stop(true,true).transition(currentSlideTransition, 2 * currentSlideData.duration , 'swing', function () {
                     //this.find('.object').not('.bg').css('opacity',0);
                     //this.css({'width' : '100%', 'height' : '100%'});
                 });
@@ -1046,13 +1041,16 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
 
                 $object
                     .css(css)
-                    .stop(true,false)
+                    .stop(true,true)
                     .delay(objectData.delay)
-                    .transition(transition,objectData.duration,objectData.easing, function() {
+                    .transition(transition,objectData.duration,objectData.easing, function() { 
+                        // All animations have been completed
                         if(--objectsCount === 0) {
-                            self.isAnimating = false; 
-                            self.startAutoPlay(self.options.autoPlayDelay); 
-                            // All animations have been completed
+                            // Ignore previous animating objects
+                            if($object.parent().hasClass('active')) {
+                                self.isAnimating = false;
+                                self.startAutoPlay(self.options.autoPlayDelay);
+                            }
                         }
                     }); 
             });
@@ -1063,7 +1061,6 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                 window.console.log(msg); 
             }
         }
-
 
     };
 
