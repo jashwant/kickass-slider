@@ -88,7 +88,8 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         this.nextSlideIndex     = this.options.firstSlideIndex;
         this.nextSlide          = this.slides.filter(':nth-child(' + this.nextSlideIndex + ')');
         this.nextSlideObjects   = this.nextSlide.find('.object');
-        this.isAnimating = false;
+        // Converted isAnimating from bool to int due to transit's incapability to stop animation.
+        this.isAnimating = 0;
 
         //jQuery imagesLoaded plugin v2.1.0 (http://github.com/desandro/imagesloaded)
         // Using as function, as in future thinking to supply filtered list of images.
@@ -326,6 +327,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         },
 
         pause: function(hardPause) {
+            var self = this;
             if(!this.isPaused) {
                 this.isPaused = true;
                 this.isHardPaused = hardPause;
@@ -334,7 +336,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
             else { 
                 this.isPaused = false;
                 this.isHardPaused = false;
-                if(!this.isAnimating) {
+                if(self.isAnimating === 0) {
                     this.startAutoPlay(this.options.autoPlayDelay);
                 }
             }
@@ -371,7 +373,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         },  
 
         goToSlide: function(id) {
-            this.isAnimating = true;
+            this.isAnimating += 1;
             this.currentSlide   =  this.slides.filter(':nth-child('+ this.currentSlideIndex +')');
             this.nextSlide      =  this.slides.filter(':nth-child(' + id + ')'); 
             
@@ -404,6 +406,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                     // Do nothing
                 }
             }
+
 
             if(transition === 'slideTop') { 
                 currentSlideTransition = {
@@ -1047,8 +1050,8 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                         // All animations have been completed
                         if(--objectsCount === 0) {
                             // Ignore previous animating objects
-                            if($object.parent().hasClass('active')) {
-                                self.isAnimating = false;
+                            self.isAnimating -= 1;
+                            if(self.isAnimating === 0) {
                                 self.startAutoPlay(self.options.autoPlayDelay);
                             }
                         }
@@ -1061,6 +1064,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                 window.console.log(msg); 
             }
         }
+
 
     };
 
