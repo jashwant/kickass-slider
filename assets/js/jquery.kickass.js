@@ -327,7 +327,6 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         },
 
         pause: function(hardPause) {
-            var self = this;
             if(!this.isPaused) {
                 this.isPaused = true;
                 this.isHardPaused = hardPause;
@@ -336,7 +335,9 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
             else { 
                 this.isPaused = false;
                 this.isHardPaused = false;
-                this.startAutoPlay(this.options.autoPlayDelay);
+                if(!this.isAnimating) {
+                    this.startAutoPlay(this.options.autoPlayDelay);
+                }
             }
         },  
 
@@ -868,7 +869,6 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                     if( pos === options.cuboidsCount - 1 ) {
                         self.slider.css( 'overflow', 'hidden' );
                         self.slides.show();
-                        self.isAnimating = false;
                         self.$box.remove();  
                         self.slideAnimationCompleted();
                     }
