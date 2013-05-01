@@ -870,7 +870,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                         self.slider.css( 'overflow', 'hidden' );
                         self.slides.show();
                         self.$box.remove();  
-                        self.slideAnimationCompleted();
+                        self.bgAnimationCompleted();
                     }
 
                 });
@@ -892,7 +892,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                 .stop(true,false)
                 .delay(nextSlideData.delay)
                 .transition(nextSlideTransition, nextSlideData.duration, 'swing', function () {
-                    self.slideAnimationCompleted();
+                    self.bgAnimationCompleted();
                 });
  
             // Animate current slide 
@@ -903,7 +903,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                 });
         },
 
-        slideAnimationCompleted : function () { 
+        bgAnimationCompleted : function () { 
             var self = this;
             self.currentSlideIndex  = self.nextSlideIndex; 
             self.currentSlide.removeClass('active'); 
@@ -913,6 +913,11 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
             $objects.css('opacity',1);
 
             var objectsCount = $objects.length ; 
+            if(objectsCount === 0) {
+                this.slideAnimationCompleted();
+                return;
+            }
+             
             $objects.each(function () {
                 var $object = $(this);
                 var objectData = $object.data('slider'); 
@@ -1050,12 +1055,16 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                     .delay(objectData.delay)
                     .transition(transition,objectData.duration,objectData.easing, function() {
                         if(--objectsCount === 0) {
-                            self.isAnimating = false; 
-                            self.startAutoPlay(self.options.autoPlayDelay); 
                             // All animations have been completed
+                            self.slideAnimationCompleted();
                         }
                     }); 
-            });
+            }); 
+        },
+
+        slideAnimationCompleted : function () {
+            this.isAnimating = false; 
+            this.startAutoPlay(this.options.autoPlayDelay); 
         },
 
         log : function (msg) {
