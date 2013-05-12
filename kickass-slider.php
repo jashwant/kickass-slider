@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: KickAss Slider
-Plugin URI: http://www.jashwant.com/kickass-slider
+Plugin URI: http://jashwant.github.io/kickass-slider
 Description: Slider having CSS3 animations ( with jQuery fallback ) and drag n drop UI.
-Version: 1.0
+Version: 1.1
 Author: Jashwant Singh Chaudhary
 Author URI: http://www.jashwant.com
 */	
@@ -18,5 +18,5 @@ if ( !function_exists( 'add_action' ) ) {
 require_once('class.kickass-slider.php'); 
 
 // Initialise the class and thus invoke constructor
-$kickAssSlider = new KickAssSlider( __FILE__ ,'0.1');
+$kickAssSlider = new KickAssSlider( __FILE__ ,'1.1');
 ?>

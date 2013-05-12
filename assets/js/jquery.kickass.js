@@ -1,6 +1,6 @@
 /* 
     Project     : KickAss Slider (http://www.jashwant.com/kickass-slider)
-    Version     : 0.1
+    Version     : 1.0
     Author      : Jashwant Singh Chaudhary
     Author url  : http://www.jashwant.com
     Github      : https://github.com/jashwant/kickass-slider
@@ -80,6 +80,9 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         this.slides     = this.slider.children('li');
         this.navs       = this.$element.find('.next,.prev').css('opacity',0);
 
+        // Callbacks
+        this.afterLoaded = function () {};
+        
         this.options    = $.extend( {}, defaults, options );
         this._defaults = defaults;
         this._name = pluginName;
@@ -89,6 +92,9 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         this.nextSlide          = this.slides.filter(':nth-child(' + this.nextSlideIndex + ')');
         this.nextSlideObjects   = this.nextSlide.find('.object');
         this.isAnimating = false;
+
+        
+
 
         //jQuery imagesLoaded plugin v2.1.0 (http://github.com/desandro/imagesloaded)
         // Using as function, as in future thinking to supply filtered list of images.
@@ -184,6 +190,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
 
         var self = this;
         function oncePreloaded() {
+           self.afterLoaded();
            // imagesLoad modifies `this`, hence `self`. It also passes args, which we are ignoring
            self.slider.show();
            self.init(); 
@@ -891,15 +898,14 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
             this.nextSlide
                 .stop(true,false)
                 .delay(nextSlideData.delay)
-                .transition(nextSlideTransition, nextSlideData.duration, 'swing', function () {
+                .transition(nextSlideTransition, parseFloat(nextSlideData.duration), 'swing', function () {
                     self.bgAnimationCompleted();
                 });
  
             // Animate current slide 
             this.currentSlide  
-                 .stop(true,false).transition(currentSlideTransition, 2 * currentSlideData.duration , 'swing', function () {
-                    //this.find('.object').not('.bg').css('opacity',0);
-                    //this.css({'width' : '100%', 'height' : '100%'});
+                .stop(true,false).transition(currentSlideTransition, 2 * parseFloat(currentSlideData.duration) , 'swing', function () {
+                   
                 });
         },
 
@@ -1053,7 +1059,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                     .css(css)
                     .stop(true,false)
                     .delay(objectData.delay)
-                    .transition(transition,objectData.duration,objectData.easing, function() {
+                    .transition(transition,parseFloat(objectData.duration),objectData.easing, function() {
                         if(--objectsCount === 0) {
                             // All animations have been completed
                             self.slideAnimationCompleted();
