@@ -1,6 +1,6 @@
 /* 
     Project     : KickAss Slider (http://www.jashwant.com/kickass-slider)
-    Version     : 0.1
+    Version     : 1.0
     Author      : Jashwant Singh Chaudhary
     Author url  : http://www.jashwant.com
     Github      : https://github.com/jashwant/kickass-slider
@@ -891,15 +891,14 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
             this.nextSlide
                 .stop(true,false)
                 .delay(nextSlideData.delay)
-                .transition(nextSlideTransition, nextSlideData.duration, 'swing', function () {
+                .transition(nextSlideTransition, parseFloat(nextSlideData.duration), 'swing', function () {
                     self.bgAnimationCompleted();
                 });
  
             // Animate current slide 
             this.currentSlide  
-                 .stop(true,false).transition(currentSlideTransition, 2 * currentSlideData.duration , 'swing', function () {
-                    //this.find('.object').not('.bg').css('opacity',0);
-                    //this.css({'width' : '100%', 'height' : '100%'});
+                .stop(true,false).transition(currentSlideTransition, 2 * parseFloat(currentSlideData.duration) , 'swing', function () {
+                   
                 });
         },
 
@@ -1053,7 +1052,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                     .css(css)
                     .stop(true,false)
                     .delay(objectData.delay)
-                    .transition(transition,objectData.duration,objectData.easing, function() {
+                    .transition(transition,parseFloat(objectData.duration),objectData.easing, function() {
                         if(--objectsCount === 0) {
                             // All animations have been completed
                             self.slideAnimationCompleted();
