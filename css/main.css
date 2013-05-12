@@ -159,19 +159,35 @@ html, body {
 	background: transparent url(../img/shadow.png) no-repeat bottom center;
 	background-size: 100% 100%;
 	z-index: -1; 
+	display: none;
+}
+#donate-modal {
+	width: 400px;
+	margin-left: -200px;
 }
 
-#paypal-form {
+#donate-modal.fade.in {
+	top: 25%;
+}  
+
+#donate-modal #donate {
+	float : none;
+} 
+
+#donate-modal #donate input[type="submit"] {
+	margin-top: 15px;
+}
+
+#donate {
 	margin:	0;
 	font-size: 13px;
-}
+} 
 
-#paypal-form [type="submit"] {
+#donate input[type="submit"] {
 	margin-bottom: 10px;
-}
+} 
 
-
-#paypal-form select {
+#donate select {
 	height: 25px;
 	font-size: 12px; 
 } 

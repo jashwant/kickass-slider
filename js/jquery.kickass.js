@@ -80,6 +80,9 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         this.slides     = this.slider.children('li');
         this.navs       = this.$element.find('.next,.prev').css('opacity',0);
 
+        // Callbacks
+        this.afterLoaded = function () {};
+        
         this.options    = $.extend( {}, defaults, options );
         this._defaults = defaults;
         this._name = pluginName;
@@ -89,6 +92,9 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
         this.nextSlide          = this.slides.filter(':nth-child(' + this.nextSlideIndex + ')');
         this.nextSlideObjects   = this.nextSlide.find('.object');
         this.isAnimating = false;
+
+        
+
 
         //jQuery imagesLoaded plugin v2.1.0 (http://github.com/desandro/imagesloaded)
         // Using as function, as in future thinking to supply filtered list of images.
@@ -184,6 +190,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
 
         var self = this;
         function oncePreloaded() {
+           self.afterLoaded();
            // imagesLoad modifies `this`, hence `self`. It also passes args, which we are ignoring
            self.slider.show();
            self.init(); 

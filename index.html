@@ -161,7 +161,7 @@
         <footer id="footer">
             <div class="container">
                 <p class="pull-left">Author <a href="http://twitter.com/jashwant">@jashwant</a></p>
-                <form id="paypal-form" class="pull-right" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <form id="donate" class="pull-right" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                     <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="on0" value="Generosity Level">Generosity Level
                     &nbsp;
@@ -182,6 +182,18 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.js"><\/script>')</script>
         <script src="js/jquery.kickass.js"></script>
+        <script src="js/jquery.bootstrap.min.js"></script>
         <script src="js/main.js"></script>
+
+         
+        <!-- Modal -->
+        <div id="donate-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3>Donate</h3>
+          </div>
+          <div class="modal-body text-center">
+          </div>
+        </div>
     </body>
 </html>

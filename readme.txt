@@ -1,6 +1,6 @@
 === KickAss Slider ===
 Contributors: jashwant
-Donate link: jashwant.github.io/kickass-slider#paypal-form
+Donate link: jashwant.github.io/kickass-slider/#donate
 Tags: parallax slider,css3 slider,slider,parallax,drag-n-drop
 Requires at least: 3.5
 (I have used only 1 or 2 features of wordpress 3.5, if someone wants, he/she can fork with fallback code)
@@ -37,7 +37,7 @@ You can contribute to plugin developed from [github](https://github.com/jashwant
 
 = I loved the plugin, how can I show gratitude ? =
 
-You can donate the author to support opensource culture. You can donate [here](http://jashwant.github.io/kickass-slider#paypal-form).
+You can donate the author to support opensource culture. You can donate [here](http://jashwant.github.io/kickass-slider/#donate).
 
 
 == Screenshots ==
