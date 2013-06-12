@@ -43,26 +43,26 @@ You can donate the author to support opensource culture. Donate [here](http://ja
 ## Screenshots ##
 
 ###1. Fish tank slide.###
-![Fish tank slide.](http://s-plugins.wordpress.org/kickass-slider/assets/screenshot-1.jpg)
+![Fish tank slide.](screenshots/screenshot-1.jpg?raw=true)
 
 ###2. Video and form slide.###
-![Video and form slide.](http://s-plugins.wordpress.org/kickass-slider/assets/screenshot-2.jpg)
+![Video and form slide.](screenshots/screenshot-2.jpg?raw=true)
 
 ###3. Edit slide (backend).###
-![Edit slide (backend).](http://s-plugins.wordpress.org/kickass-slider/assets/screenshot-3.jpg)
+![Edit slide (backend).](screenshots/screenshot-3.jpg?raw=true)
 
 ###4. List sliders (backend).###
-![List sliders (backend).](http://s-plugins.wordpress.org/kickass-slider/assets/screenshot-4.jpg)
+![List sliders (backend).](screenshots/screenshot-4.jpg?raw=true)
 
 
 ## Changelog ##
 
 ### 1.2 ###
-*** Bug Fix:** Fixes the bug, to allow more than 10 slides in a slider  
+* **Bug Fix:** Fixes the bug, to allow more than 10 slides in a slider  
 
 ### 1.1 ###
-*** Bug Fix:** Fixes IE8 opacity bug  
-*** Bug Fix:** Fixes fast animations in browsers not supporting CSS3  
+* **Bug Fix:** Fixes IE8 opacity bug  
+* **Bug Fix:** Fixes fast animations in browsers not supporting CSS3  
 
 ### 1.0 ###
 * Initial release
