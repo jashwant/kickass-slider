@@ -335,13 +335,15 @@
             var slidesOrder = [];
 
             postBoxes.each(function (k,v) {
-                slidesOrder[k] = parseInt(v.id.slice(-1));
+                slidesOrder[k] = parseInt(v.id.split('_Slide')[1]);
             });
  
 
             postBoxes.sort(function(a,b){
-                if(a.id < b.id) return -1;
-                if(a.id > b.id) return 1;
+                var aid = parseInt(a.id.split('_Slide')[1]);
+                var bid = parseInt(b.id.split('_Slide')[1]);
+                if(aid < bid) return -1;
+                if(aid > bid) return 1;
                 return 0;
             });
             
