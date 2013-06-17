@@ -13,7 +13,11 @@
 		<input type="button" value="Add image" class="button" data-uploader-button-text="Insert image" data-uploader-title="Add image in your slider" data-action="img-upload" />
 		<input type="button" value="Add video" class="button"  data-action="add-video" /> 
 		<input type="button" data-action="delete-slide" class="button alignright button-danger" value="Delete Slide" /> 
-	</li>   
+	</li> 
+	<li>
+		<span class="label">Links</span>
+		<input type="text" class="slide-url small-text" value="{{ href }}" title="link target" />
+	</li>
 	<li class="slideContainer" style="{{ bgStyle }}"> 
 		{{# slide.objects }} 
 			<div class="object {{ type }}" data-slider="{{ data }}" style="top:{{ top }};left:{{ left }}">{{{ html }}}</div>
@@ -56,6 +60,10 @@
 			<input type="button" value="Add video" class="button"  data-action="add-video" /> 
 			<input type="button" data-action="delete-slide" class="button alignright button-danger" value="Delete Slide" /> 
 		</li>  
+		<li>
+			<span class="label">Link to: </span>
+			<input type="text" class="slide-url small-text" value="{{ href }}" title="link target" />
+		</li>
 
 		<li class="slideContainer"> 
 		</li> 

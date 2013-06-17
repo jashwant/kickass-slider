@@ -929,17 +929,37 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                 var objectData = $object.data('slider'); 
                 var top  = objectData.top;
                 var left = objectData.left;
+				var height = $object.height();
+				var width = $object.width();
                 var css = transition = {};
 
-                if(objectData.transition === 'slideTop') {
+                transition = { 
+                     top : objectData.top , 
+                     left : objectData.left,
+                     opacity : 1
+                };
+
+				if (objectData.transition === 'none' ) {
+					css = {
+						top: top, 
+						left: left,
+						opacity: 1
+					};
+				}
+				else if(objectData.transition === 'growIn') {
+					css = {
+						top: top,
+						left: left,
+						opacity: 0,
+						height: '5%',
+						width: 'auto'
+					};
+					transition.width = '100%';
+				}
+                else if(objectData.transition === 'slideTop') {
                     css  = { 
                         top     :  '100%',
                         left    :  left,
-                        opacity : 1
-                    }
-                    transition = { 
-                        top : objectData.top , 
-                        left : objectData.left,
                         opacity : 1
                     }
                 }
@@ -949,21 +969,11 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                         left    :  '-100%',
                         opacity : 1
                     }
-                    transition = { 
-                        top : objectData.top , 
-                        left : objectData.left,
-                        opacity : 1
-                    } 
                 }
                 else if(objectData.transition === 'slideRight') {
                     css = {
                         top     : top,
                         left    : '-100%',
-                        opacity : 1
-                    }
-                    transition = { 
-                        top : objectData.top , 
-                        left : objectData.left,
                         opacity : 1
                     }
                 }
@@ -973,21 +983,11 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                         left    : '-100%',
                         opacity : 1
                     }
-                    transition = { 
-                        top : objectData.top , 
-                        left : objectData.left,
-                        opacity : 1
-                    }
                 }
                 else if(objectData.transition === 'slideBottom') {
                     css = {
                         top     : '-100%',
                         left    : left,
-                        opacity : 1
-                    }
-                    transition = { 
-                        top : objectData.top , 
-                        left : objectData.left,
                         opacity : 1
                     }
                 }
@@ -997,21 +997,11 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                         left    : '100%',
                         opacity : 1
                     }
-                    transition = { 
-                        top : objectData.top , 
-                        left : objectData.left,
-                        opacity : 1
-                    }
                 }
                 else if(objectData.transition === 'slideLeft') {
                     css = {
                         top     : top,
                         left    : '100%',
-                        opacity : 1
-                    }
-                    transition = { 
-                        top : objectData.top , 
-                        left : objectData.left,
                         opacity : 1
                     }
                 }
@@ -1021,22 +1011,12 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                         left    : '100%',
                         opacity : 1
                     }
-                    transition = { 
-                        top : objectData.top , 
-                        left : objectData.left,
-                        opacity : 1
-                    }
                 }
                 else if (objectData.transition === 'fadeIn') {
                     css = {
                         top : top,
                         left: left,
                         opacity : 0
-                    }
-                    transition = { 
-                        top : objectData.top , 
-                        left : objectData.left,
-                        opacity : 1
                     }
                 }
                 else if(objectData.transition === 'fadeOut') {
@@ -1045,11 +1025,6 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
                         left : left,
                         opacity : 1
                     }
-                    transition = { 
-                        top : objectData.top , 
-                        left : objectData.left,
-                        opacity : 0
-                    }
                 }
                 else {
                     self.log(objectData.transition + ' is an invalid transition name'); 
@@ -1057,7 +1032,7 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
 
                 $object
                     .css(css)
-                    .stop(true,false)
+                    .stop(true, false)
                     .delay(objectData.delay)
                     .transition(transition,parseFloat(objectData.duration),objectData.easing, function() {
                         if(--objectsCount === 0) {

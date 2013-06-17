@@ -57,6 +57,12 @@ You can donate the author to support opensource culture. Donate [here](http://ja
 
 ## Changelog ##
 
+### 1.2-slide-links (branch) ###
+
+* **Added:** 	Support for slide wide links
+* **Bug Fix:**  Removed redundant code from mustache setup
+* **Bug Fix:**  Fixed default slide direction in built-in default settings
+
 ### 1.2 ###
 * **Bug Fix:** Fixes the bug, to allow more than 10 slides in a slider  
 

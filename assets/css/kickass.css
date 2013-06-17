@@ -36,6 +36,10 @@
 	height: 240px;
 }
 
+.slider > li > .pointer-event-passthru {
+	pointer-events: none;
+}
+
 .slider > li > .bg {
 	z-index: 9;
 	height: 100%;
@@ -117,13 +121,12 @@
 
 .sliderContainer > .prev, .sliderContainer > .next {
 	position: absolute;
-	top: 40%; 
-	width: 40px;
-	height: 40px;
-	margin-top: -20px;
-	font-size: 60px;
-	font-weight: 100;
-	line-height: 30px;
+	top: 50%; 
+	width: 22px;
+	height: 22px;
+	margin-top: -14px;
+	font-size: 18px;
+	font-weight: normal;
 	color: #ffffff;
 	text-align: center;
 	background: #222222;
@@ -139,9 +142,9 @@
 }
 
 .sliderContainer > .next {
-	right: 1%;
+	right: -5%;
 }
 
 .sliderContainer > .prev {
-	left: 1%;
+	left: -5%;
 }

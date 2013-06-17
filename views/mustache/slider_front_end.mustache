@@ -1,8 +1,9 @@
 {{# slider }} 
+<div id="{{ slider_html_id}}-outer" class="sliderOuterContainer">
 <div id="{{ slider_html_id }}" class="sliderContainer">
 	<ul class="slider">
 		{{# slides }} 
-			<li data-transition="{{ transition }}" data-delay="{{ delay }}" data-duration="{{ duration }}" style="{{ bgColor }}">
+			<li href='{{ href }}' data-transition="{{ transition }}" data-delay="{{ delay }}" data-duration="{{ duration }}" style="{{ bgColor }}">
 				{{# objects }}	
 					<div class="object {{ type }}" style="top:{{ top }}; left:{{ left }}" data-slider="{{ data }}" >{{{ html }}}</div>
 				{{/ objects }}
@@ -12,8 +13,23 @@
 	<a class="prev nav" href="#">‹</a>
 	<a class="next nav" href="#">›</a>
 </div> 
+</div>
 <script type="text/javascript">   
 	jQuery(document).ready(function ($) {
+
+		var li = $('#{{ slider_html_id }} li[href!=""]');
+		var href = $(li).attr('href');
+
+		if ( href != '' && href != '#' ) {
+			$(li).children().addClass('pointer-event-passthru');
+			$(li).click(function(event) {
+				event.preventDefault();
+				console.log("linking to " + href);
+				window.location = href;
+			});
+			$(li).css('cursor', 'pointer');
+		}
+
 		$('#{{ slider_html_id }}').KickAssSlider({
 			cycle 				: 	{{ cycle }},
 			shuffle				: 	{{ shuffle }},
@@ -24,6 +40,8 @@
 			animateFirstSlide 	: 	{{ animateFirstSlide }},
 			keyBoardNav 		: 	{{ keyBoardNav }}
 		});
+
+
 	});  
 </script>
 {{/ slider }}

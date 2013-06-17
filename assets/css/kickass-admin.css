@@ -152,6 +152,10 @@
 	margin-top: 5px;
 }
 
+#normal-sortables .panel .slide-url  {
+	min-width: 400px;
+}
+
 #normal-sortables .slideContainer { 
 	margin: 10px 0;
 	border: 1px solid #ccc;

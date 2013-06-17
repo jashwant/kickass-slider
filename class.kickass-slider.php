@@ -102,6 +102,15 @@ class KickAssSlider {
             ),
         );
         self::$object_transitions = array(
+			array(
+                'value'     => 'none',
+                'text'      => 'No Effect'
+			),
+			array(
+                'value'     => 'growIn',
+                'text'      => 'Grow'
+			),
+
             array(
                 'value'     => 'fadeIn',
                 'text'      => 'Fade In'
@@ -402,9 +411,10 @@ class KickAssSlider {
             'slides' => array(
                 array(
                     'bgColor'    => '',
-                    'transition' => 'slideWest',
+                    'transition' => 'slideLeft',
                     'duration'   => 1000,
                     'delay'      =>  0,
+					'href'		 => '',
                     'objects'    => array() 
                 )
             )
@@ -457,6 +467,7 @@ class KickAssSlider {
             $object['type'] = $object['data']['type']; 
             $object['top'] = $object['data']['top'];
             $object['left'] = $object['data']['left']; 
+			$object['href'] = $object['data']['href'];
             $object['data'] = json_encode($object['data']);
         } 
 
@@ -466,6 +477,9 @@ class KickAssSlider {
         } 
 
         $partial = self::$mustache -> loadPartial('slide'); 
+		echo "<!-- AHMED ";
+		print_r ($slide);
+		echo "-->";
         echo $partial -> render(array(
             'slide'         => $slide,
             'transitions'   => $transitions
@@ -499,17 +513,18 @@ class KickAssSlider {
                     $key = $_POST['sliderID'];
                     $slider = $sliders[$key];
                     $slider['title'] = 'Copy of '.$slider['title'];
+                    $href = $slider['href'];
                     $sliders[] = $slider;  
                     update_option(self::PLUGIN_PREFIX.'option',$sliders);
 
                     $id =  max(array_keys($sliders));                    
                     $slidesCount = array_key_exists('slides', $slider) ? count($slider['slides']) : 0 ;
-                    
                     self::init_mustache();
                     $partial = self::$mustache -> loadPartial('slide_tr'); 
                     $html = $partial -> render(array(
                         'key'         => $id,
                         'page_name'   => self::$page_name,
+						'href'		  => $href,
                         'title'       => $slider['title'],
                         'slidesCount' => $slidesCount 
                     )); 

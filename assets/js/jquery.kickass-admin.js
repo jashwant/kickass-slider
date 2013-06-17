@@ -58,7 +58,7 @@
             else {
                 $('<div></div>')
                     .addClass('object img') 
-                    .data('slider',{ type : 'img' , easing : 'linear', transition: 'slideWest', duration : 800 })
+                    .data('slider',{ type : 'img' , easing : 'linear', transition: 'slideLeft', duration : 800 })
                     .append('<img src="' + img.url + '" />')
                     .appendTo($container)
                     .draggable();
@@ -210,7 +210,7 @@
                     .data('slider', { 
                         type        : 'text',
                         easing      : 'linear',
-                        transition  : 'slideWest',
+                        transition  : 'slideLeft',
                         duration    : 800,
                         delay       : 0 
                     })
@@ -371,7 +371,9 @@
                     objects    : [],
                     transition : $this.closest('.panel').find('.slide-transition').val(),
                     duration   : $this.closest('.panel').find('.slide-duration').val(),
-                    delay      : $this.closest('.panel').find('.slide-delay').val() 
+                    delay      : $this.closest('.panel').find('.slide-delay').val(),
+					url		   : $this.closest('.panel').find('.slide-url').val(),
+					href	   : $this.closest('.panel').find('.slide-url').val()
                 };
                 $this.find('.object').each(function () {
                     var $object = $(this);  
@@ -529,7 +531,7 @@
                 .data('slider', { 
                     type: 'video', 
                     easing : 'linear', 
-                    transition : 'slideWest',
+                    transition : 'slideLeft',
                     duration : 800,
                     delay : 0,
                     videoType : videoType,
