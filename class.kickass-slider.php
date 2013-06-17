@@ -477,9 +477,6 @@ class KickAssSlider {
         } 
 
         $partial = self::$mustache -> loadPartial('slide'); 
-		echo "<!-- AHMED ";
-		print_r ($slide);
-		echo "-->";
         echo $partial -> render(array(
             'slide'         => $slide,
             'transitions'   => $transitions
