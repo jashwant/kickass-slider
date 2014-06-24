@@ -27,6 +27,11 @@
 	padding: .5em 1em;
 }
 
+/* tinyMCE popups have lower z-index and hence lowering ui-dialog z-index */
+.ui-dialog, .ui-widget-overlay {
+	z-index: 100100;
+}
+
 /* Border to tinyMCE container */
 .object-dialog .mceIframeContainer {
 	border: 1px solid #eee;
@@ -80,7 +85,8 @@
 	color: #fff;
 	text-decoration: none;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
- 
+ 	-webkit-box-shadow: none;
+ 	box-shadow: none;
 }
 
 #kickAssWrapper .button-danger:hover, .object-dialog .button-danger:hover  { 
@@ -328,6 +334,17 @@
 
 .object-dialog li {
 	margin-bottom: 15px;
+  *zoom: 1;
+}
+
+.object-dialog li:before,
+.object-dialog li:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.object-dialog li:after {
+  clear: both;
 }
 
 #img-dialog .thumb {

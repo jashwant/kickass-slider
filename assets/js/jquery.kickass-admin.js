@@ -546,16 +546,16 @@
             dialogClass : 'wp-dialog',
             title       : 'Edit',
             autoOpen    : false,
-            width       : 450,
-            minWidth    : 450,
+            width       : 520,
+            minWidth    : 520,
             open        : function (event, ui) { 
                 if(this.id === 'text-dialog') {
-                    tinymce.execCommand('mceAddControl',true,'editor'); 
+                    tinymce.execCommand('mceAddEditor',true,'editor');
                 }
             },
             close       : function( event, ui ) {
                 if(this.id === 'text-dialog') {
-                    tinymce.execCommand('mceRemoveControl',true, 'editor'); 
+                    tinymce.execCommand('mceRemoveEditor',true, 'editor');
                 }
             }
         })

@@ -36,7 +36,7 @@
 	height: 240px;
 }
 
-.slider > li > .bg {
+.slider > li > .object.bg {
 	z-index: 9;
 	height: 100%;
 	width: 100%;
